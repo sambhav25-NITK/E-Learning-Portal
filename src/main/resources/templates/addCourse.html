@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+head>
+<meta charset="ISO-8859-1">
+<title>E-Learning Portal</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">E-Learning Portal</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="AdminView.html" th:href="@{/adminView}">Home</a></li>
+
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="dashboard.html" th:href="@{/logout}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container text-center">
+    <div>
+        <h1>Add Course</h1>
+    </div>
+    <form th:action="@{/addCourse}" th:object="${course}"
+          method="post" style="max-width: 600px; margin: 0 auto;">
+        <div class="m-3">
+
+            <div class="form-group row">
+                <label class="col-4 col-form-label">Course Name: </label>
+                <div class="col-8">
+                    <input type="text" th:field="*{courseName}" class="form-control"
+                           required />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-4 col-form-label">Course Fees: </label>
+                <div class="col-8">
+                    <input type="number" th:field="*{courseFee}" class="form-control" required/>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-4 col-form-label">Course Resource: </label>
+                <div class="col-8">
+                    <input type="text" th:field="*{courseResource}" class="form-control"
+                           required />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-4 col-form-label">Course Description: </label>
+                <div class="col-8">
+                    <input type="text" th:field="*{courseDesc}" class="form-control"
+                           required />
+                </div>
+            </div>
+
+
+
+            <div>
+                <button type="submit" class="btn btn-primary">Add</button>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Spring boot email template with Thymeleaf</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=2.0"/>
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
+
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+
+</head>
+<body >
+
+<div>
+
+
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <div th:if="${ not#lists.isEmpty(contact)}">
+                <table class="center">
+                    <div class="row">
+                        <thead style="background-color: #4dff88">
+                        <tr height="50px">
+
+                            <th style="color: black;width:20px;font-family:Comic Sans MS;background-color: #4dff88;">Course Id</th>
+                            <th style="color: black;font-family:Comic Sans MS;background-color: #4dff88;">Course Name</th>
+                            <th style="color: black;font-family:Comic Sans MS;background-color: #4dff88;">Course Fees</th>
+                            <th style="color: black;font-family:Comic Sans MS;background-color: #4dff88;">Course Resources</th>
+                            <th style="color: black;font-family:Comic Sans MS;background-color: #4dff88;">Course Description</th>
+
+
+                        </tr>
+                        </thead><p></p>
+                        <tbody>
+                        <tr height="50px" th:each="c: ${course}">
+
+                            <td th:text="${c.courseId}"></td>
+                            <td th:text="${c.courseName}"></td>
+                            <td th:text="${c.courseFee}"></td>
+                            <td th:text="${c.courseResource}"></td>
+                            <td th:text="${c.courseDesc}"></td>
+
+                        </tr>
+                        </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+</div>
+</body>
+</html>
+
+
+

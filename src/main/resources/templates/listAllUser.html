@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="ISO-8859-1">
+<title>E-Learning Portal</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">E-Learning Portal</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="AdminView.html" th:href="@{/adminView}">Home</a></li>
+
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="dashboard.html" th:href="@{/logout}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div>
+
+
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <div th:if="${ not#lists.isEmpty(user)}">
+                <table class="center">
+                    <div class="row">
+                        <thead style="background-color: #4dff88">
+                        <tr height="50px">
+
+                            <th style="color: black;width:20px;font-family:Comic Sans MS;background-color: #4dff88;">UserId</th>
+                            <th style="color: black;font-family:Comic Sans MS;background-color: #4dff88;">Name</th>
+                            <th style="color: black;font-family:Comic Sans MS;background-color: #4dff88;">Email</th>
+                            <th style="color: black;font-family:Comic Sans MS;background-color: #4dff88;">Phone</th>
+                            <th style="color: black;font-family:Comic Sans MS;background-color: #4dff88;">Address</th>
+                            <th style="color: black;font-family:Comic Sans MS;background-color: #4dff88;">Registration Date</th>
+
+                        </tr>
+                        </thead><p></p>
+                        <tbody>
+                        <tr height="50px" th:each="u: ${user}">
+
+                            <td th:text="${u.userId}"></td>
+                            <td th:text="${u.name}"></td>
+                            <td th:text="${u.email}"></td>
+                            <td th:text="${u.phone}"></td>
+                            <td th:text="${u.address}"></td>
+                            <td th:text="${u.regDate}"></td>
+                        </tr>
+                        </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+</div>
+</body>
+</html>
+
+
+
